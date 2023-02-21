@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
 
 android {
@@ -39,3 +40,27 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.github.asadej0951'
+                artifactId = 'library-toast'
+                version = '1.0.1'
+                artifact(bundleReleaseAar)
+            }
+        }
+    }
+}
+
+//uploadArchives {
+//    repositories {
+//        mavenDeployer {
+//            pom.version='1.0.0'
+//            pom.artifactId='library-toast'
+//            pom.groupId='com.github.asadej0951'
+//        }
+//    }
+//}
+//apply from: '../push_lib.gradle'
