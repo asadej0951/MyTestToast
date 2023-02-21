@@ -47,7 +47,7 @@ afterEvaluate {
             release(MavenPublication) {
                 groupId = 'com.github.asadej0951'
                 artifactId = 'library-toast'
-                version = '1.0.0'
+                version = '1.0.1'
                 artifact(bundleReleaseAar)
             }
         }
